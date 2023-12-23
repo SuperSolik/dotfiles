@@ -1,5 +1,7 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require('wezterm')
+local colors = require('lua/rose-pine-moon').colors()
+
 local mux = wezterm.mux
 -- This table will hold the configuration.
 local config = {}
@@ -12,7 +14,8 @@ end
 
 -- This is where you actually apply your config choices
 
-config.color_scheme = 'Gruvbox Dark (Gogh)'
+-- config.color_scheme = 'Gruvbox Dark (Gogh)'
+config.colors = colors
 config.window_background_opacity = 0.95
 
 config.font_size = 16
