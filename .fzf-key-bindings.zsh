@@ -68,10 +68,28 @@ fzf-file-widget() {
 }
 
 
-zle     -N            fzf-file-widget
-bindkey -M emacs '^F' fzf-file-widget
-bindkey -M vicmd '^F' fzf-file-widget
-bindkey -M viins '^F' fzf-file-widget
+fzf-cd-widget() {
+  local cmd="${FZF_CTRL_T_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
+    -o -type d -print 2> /dev/null | cut -b3-"}"
+  setopt localoptions pipefail no_aliases 2> /dev/null
+  local dir="$(eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-100%} --scheme=path --bind=ctrl-z:ignore ${FZF_DEFAULT_OPTS-} ${FZF_ALT_C_OPTS-}" $(__fzfcmd) +m)"
+  if [[ -z "$dir" ]]; then
+    zle redisplay
+    return 0
+  fi
+  zle push-line # Clear buffer. Auto-restored on next prompt.
+  BUFFER="cd ${(q)dir}"
+  zle accept-line
+  local ret=$?
+  unset dir # ensure this doesn't end up appearing in prompt expansion
+  zle reset-prompt
+  return $ret
+}
+
+zle     -N            fzf-cd-widget
+bindkey -M emacs '^F' fzf-cd-widget
+bindkey -M vicmd '^F' fzf-cd-widget
+bindkey -M viins '^F' fzf-cd-widget
 
 # CTRL-R - Paste the selected command from history into the command line
 fzf-history-widget() {
