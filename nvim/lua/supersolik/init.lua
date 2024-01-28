@@ -1,0 +1,7 @@
+require('supersolik.set')
+require('supersolik.theme')
+require('supersolik.remaps')
+require('supersolik.lsp')
+require('supersolik.telescope')
+require('supersolik.cmp')
+require('supersolik.treesitter')
