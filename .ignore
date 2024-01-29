@@ -5,3 +5,5 @@ Movies/
 Music/
 Pictures/
 Applications/
+.*/
+!.config/
