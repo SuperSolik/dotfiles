@@ -16,12 +16,12 @@ end
 
 -- config.color_scheme = 'Gruvbox Dark (Gogh)'
 config.colors = colors
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.945
 
 config.font_size = 16
 
 wezterm.on("gui-startup", function(cmd)
-  local tab, pane, window = mux.spawn_window(cmd or {})
+  local _, _, window = mux.spawn_window(cmd or {})
   window:gui_window():maximize()
 end)
 
@@ -32,6 +32,10 @@ config.keys = {
     action = wezterm.action.CloseCurrentTab { confirm = false },
   },
 }
+
+-- disable checking for updates
+config.check_for_updates = false
+config.show_update_window = false
 
 -- and finally, return the configuration to wezterm
 return config
