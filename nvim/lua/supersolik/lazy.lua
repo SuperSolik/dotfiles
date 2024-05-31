@@ -60,9 +60,7 @@ require('lazy').setup({
         },
     },
 
-    {
-        'rose-pine/neovim',
-    },
+    { 'rose-pine/neovim' },
 
     {
         -- Set lualine as statusline

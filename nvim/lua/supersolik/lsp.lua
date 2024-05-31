@@ -12,6 +12,7 @@ require('mason-lspconfig').setup()
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
+--
 local servers = {
     clangd = {
         cmd = {
@@ -21,6 +22,7 @@ local servers = {
     },
     gopls = {},
     pyright = {},
+    ruff_lsp = {},
     rust_analyzer = {},
     templ = {},
     html = { filetypes = { 'html' } },
@@ -35,6 +37,7 @@ local servers = {
     },
 }
 
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 
@@ -43,7 +46,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
+local mason_lspconfig = require('mason-lspconfig')
 
 mason_lspconfig.setup {
     ensure_installed = vim.tbl_keys(servers),
@@ -103,3 +106,16 @@ mason_lspconfig.setup_handlers {
         }
     end,
 }
+
+
+if vim.fn.executable("sourcekit-lsp") then
+    -- add custom Swift lsp from XCode
+    require('lspconfig').sourcekit.setup {
+        cmd = { 'sourcekit-lsp' },
+        on_attach = on_attach,
+        filetypes = { 'swift' },
+        name = 'sourcekit-lsp',
+        root_dir = require('lspconfig.util').root_pattern('.git', 'Package.swift'),
+        capabilities = capabilities,
+    }
+end
