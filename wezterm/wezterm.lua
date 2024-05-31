@@ -1,6 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require('wezterm')
-local colors = require('lua/rose-pine-moon').colors()
+local colors = require('lua/rose-pine').colors()
 
 local mux = wezterm.mux
 -- This table will hold the configuration.
@@ -16,7 +16,7 @@ end
 
 -- config.color_scheme = 'Gruvbox Dark (Gogh)'
 config.colors = colors
-config.window_background_opacity = 0.945
+config.window_background_opacity = 1.0
 
 config.font_size = 16
 
@@ -36,6 +36,9 @@ config.keys = {
 -- disable checking for updates
 config.check_for_updates = false
 config.show_update_window = false
+
+-- font
+-- config.font = wezterm.font 'IBM Plex Mono'
 
 -- and finally, return the configuration to wezterm
 return config
