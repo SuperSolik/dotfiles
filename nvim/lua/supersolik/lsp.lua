@@ -14,17 +14,18 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 --
 local servers = {
+    tsserver = {},
     clangd = {
         cmd = {
             "clangd",
             "--fallback-style=webkit"
         }
     },
-    gopls = {},
+    -- gopls = {},
+    -- templ = {},
+    -- arduino_language_server = {},
     pyright = {},
     ruff_lsp = {},
-    rust_analyzer = {},
-    templ = {},
     html = { filetypes = { 'html' } },
 
     lua_ls = {

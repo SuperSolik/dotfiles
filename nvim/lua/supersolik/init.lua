@@ -16,4 +16,8 @@ vim.filetype.add({
     extension = {
         templ = "templ",
     },
+    pattern = {
+        ['Jenkinsfile.*'] = 'groovy',
+        ['Dockerfile.*'] = 'dockerfile'
+    }
 })
