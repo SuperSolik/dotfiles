@@ -1,14 +1,14 @@
 -- Theme config
-require('rose-pine').setup({
-    variant = 'main',
-    dark_variant = 'main',
-    disable_background = true,
-    disable_float_background = true,
-    styles = {
-        italic = false
-    }
-})
+-- require('rose-pine').setup({
+--     variant = 'dawn',
+--     dark_variant = 'dawn',
+--     disable_background = false,
+--     disable_float_background = false,
+--     styles = {
+--         italic = false
+--     }
+-- })
+-- vim.cmd.colorscheme('rose-pine')
 
-vim.cmd.colorscheme('rose-pine')
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.o.background = 'dark'
+vim.cmd.colorscheme('zenwritten')

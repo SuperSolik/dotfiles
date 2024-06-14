@@ -1,6 +1,5 @@
 -- Pull in the wezterm API
 local wezterm = require('wezterm')
-local colors = require('lua/rose-pine').colors()
 
 local mux = wezterm.mux
 -- This table will hold the configuration.
@@ -14,10 +13,12 @@ end
 
 -- This is where you actually apply your config choices
 
--- config.color_scheme = 'Gruvbox Dark (Gogh)'
-config.colors = colors
-config.window_background_opacity = 1.0
+config.color_scheme = 'Zenwritten_dark'
+-- local colors = require('lua/rose-pine').colors()
+-- config.colors = colors
+-- config.window_background_opacity = 1.0
 
+config.font = wezterm.font('JetBrains Mono', { italic = false })
 config.font_size = 16
 
 wezterm.on("gui-startup", function(cmd)
