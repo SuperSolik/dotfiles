@@ -1,3 +1,5 @@
+export EDITOR="nvim"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -107,22 +109,29 @@ export PATH="$PATH:$GOPATH/bin"
 alias cabi="$HOME/Documents/code/tools/cabi"
 
 alias ls="ls -GFh"
-alias cls="clear"
 
 # remap nvim to vim
 alias vim=nvim
+alias activate="source .venv/bin/activate"
 
-# remap VS Codium cmd
-alias code=codium
 
 # fzf brew setup
 if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
 fi
 
-export FZF_DEFAULT_COMMAND='fd . $HOME -t d --exclude ".git"'
+export FZF_DEFAULT_COMMAND='fd . $HOME -t d -H --exclude ".git"'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 # fzf key bindings
 source $HOME/.fzf-key-bindings.zsh
 
+# disable brew auto update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# .zshrc
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
+
+fortune -s | cowsay
