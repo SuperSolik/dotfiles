@@ -10,5 +10,5 @@
 -- })
 -- vim.cmd.colorscheme('rose-pine')
 
-vim.o.background = 'dark'
-vim.cmd.colorscheme('zenwritten')
+vim.o.background = "dark"
+vim.cmd.colorscheme("zenwritten")

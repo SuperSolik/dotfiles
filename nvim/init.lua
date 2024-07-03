@@ -1,1 +1,1 @@
-require('supersolik')
+require("supersolik")
