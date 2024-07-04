@@ -5,7 +5,10 @@ require("conform").setup({
         go = { "gofmt" },
         python = { "ruff_format" },
         javascript = { "prettier" },
+        typescript = { "prettier" },
         json = { "prettier" },
+        yaml = { "prettier" },
+        html = { "prettier" },
         c = { "clang_format" },
         cpp = { "clang_format" },
     },
@@ -14,6 +17,7 @@ require("conform").setup({
         -- These options will be passed to conform.format()
         timeout_ms = 500,
         lsp_format = "fallback",
+        async = false,
     },
     formatters = {
         stylua = {
