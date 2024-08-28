@@ -11,4 +11,19 @@
 -- vim.cmd.colorscheme('rose-pine')
 
 vim.o.background = "dark"
-vim.cmd.colorscheme("zenwritten")
+
+require("vscode").setup({
+    -- Alternatively set style in setup
+    -- style = 'light'
+
+    -- Enable transparent background
+    transparent = false,
+
+    -- Enable italic comment
+    italic_comments = false,
+
+    -- Underline `@markup.link.*` variants
+    underline_links = true,
+})
+
+vim.cmd.colorscheme("vscode")
