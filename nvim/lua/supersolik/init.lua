@@ -8,6 +8,7 @@ require("supersolik.cmp")
 require("supersolik.treesitter")
 require("supersolik.utils")
 require("supersolik.conform")
+require("supersolik.oil")
 
 -- no idea where to put it so let's just keep it here
 require("mini.move"):setup()
@@ -20,5 +21,6 @@ vim.filetype.add({
     pattern = {
         ["Jenkinsfile.*"] = "groovy",
         ["Dockerfile.*"] = "dockerfile",
+        ["Pipfile"] = "toml",
     },
 })

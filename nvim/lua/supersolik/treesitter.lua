@@ -22,6 +22,7 @@ vim.defer_fn(function()
             "json",
             "toml",
             "yaml",
+            "terraform",
         },
 
         -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)

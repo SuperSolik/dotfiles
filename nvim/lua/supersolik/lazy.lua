@@ -27,6 +27,9 @@ require("lazy").setup({
     -- work with parens, quotes
     "tpope/vim-surround",
 
+    -- case insensitive search-and-replace and more
+    "tpope/vim-abolish",
+
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
     {
@@ -60,6 +63,7 @@ require("lazy").setup({
     },
 
     { "rose-pine/neovim" },
+    { "Mofiqul/vscode.nvim" },
     {
         "mcchrish/zenbones.nvim",
         -- Optionally install Lush. Allows for more configuration or extending the colorscheme
@@ -127,5 +131,31 @@ require("lazy").setup({
     {
         "stevearc/conform.nvim",
         opts = {},
+    },
+
+    {
+        "cameron-wags/rainbow_csv.nvim",
+        config = true,
+        ft = {
+            "csv",
+            "tsv",
+            "csv_semicolon",
+            "csv_whitespace",
+            "csv_pipe",
+            "rfc_csv",
+            "rfc_semicolon",
+        },
+        cmd = {
+            "RainbowDelim",
+            "RainbowDelimSimple",
+            "RainbowDelimQuoted",
+            "RainbowMultiDelim",
+        },
+    },
+
+    {
+        "stevearc/oil.nvim",
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
     },
 }, {})

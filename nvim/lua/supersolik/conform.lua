@@ -2,7 +2,7 @@ require("conform").setup({
     notify_on_error = false,
     formatters_by_ft = {
         lua = { "stylua" },
-        go = { "gofmt" },
+        -- go = { "gofmt" },
         python = { "ruff_format" },
         javascript = { "prettier" },
         typescript = { "prettier" },
@@ -14,7 +14,6 @@ require("conform").setup({
     },
 
     format_on_save = {
-        -- These options will be passed to conform.format()
         timeout_ms = 500,
         lsp_format = "fallback",
         async = false,
