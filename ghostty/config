@@ -2,3 +2,6 @@ theme = zenwritten_dark
 font-family = JetBrains Mono
 font-size = 15
 fullscreen = true
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
