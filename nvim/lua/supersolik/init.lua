@@ -11,7 +11,16 @@ require("supersolik.conform")
 require("supersolik.oil")
 
 -- no idea where to put it so let's just keep it here
-require("mini.move"):setup()
+-- NOTE: Alt + hjkl doesn't work with Ghostty because it supports native macOS text navigation stuff
+-- so using Shift + hjkl instead from now on
+require("mini.move").setup({
+    mappings = {
+        left = "<S-h>",
+        right = "<S-l>",
+        down = "<S-j>",
+        up = "<S-k>",
+    },
+})
 
 -- additional filetypes
 vim.filetype.add({
