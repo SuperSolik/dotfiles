@@ -7,3 +7,5 @@ Pictures/
 Applications/
 .*/
 !.config/
+!.local/
+go/
