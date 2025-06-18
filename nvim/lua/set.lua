@@ -66,3 +66,7 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
 vim.o.scrolloff = 8
+
+vim.diagnostic.config({
+    virtual_lines = true,
+})
