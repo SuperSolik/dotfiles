@@ -95,7 +95,7 @@ return {
                         )
                     then
                         local highlight_augroup =
-                            vim.api.nvim_create_augroup("supersoklk-lsp-highlight", { clear = false })
+                            vim.api.nvim_create_augroup("supersolik-lsp-highlight", { clear = false })
 
                         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
                             buffer = event.buf,
