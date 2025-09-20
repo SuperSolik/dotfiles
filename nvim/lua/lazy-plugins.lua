@@ -74,4 +74,6 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = { signs = false },
     },
+
+    require("supersolik.plugins.copilot"),
 }, {})
