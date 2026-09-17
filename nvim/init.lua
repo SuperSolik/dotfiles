@@ -1,5 +1,5 @@
-require("remaps")
 require("set")
+require("remaps")
 require("lazy-plugins")
 require("theme")
 require("utils")

@@ -31,7 +31,7 @@ require("lazy").setup({
     "tpope/vim-abolish",
 
     require("supersolik.plugins.cmp"),
-    require("supersolik.plugins.telescope"),
+    require("supersolik.plugins.fff"),
     require("supersolik.plugins.lsp"),
     require("supersolik.plugins.treesitter"),
     require("supersolik.plugins.oil"),
@@ -74,6 +74,4 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = { signs = false },
     },
-
-    require("supersolik.plugins.copilot"),
 }, {})

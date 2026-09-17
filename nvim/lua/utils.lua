@@ -1,10 +1,7 @@
-local wrap_is_enabled = false
-
 -- [[ toggle wrap on :ToggleWrap cmd  ]]
 vim.api.nvim_create_user_command("ToggleWrap", function()
-    wrap_is_enabled = not wrap_is_enabled
-    vim.wo.wrap = wrap_is_enabled
-    print("Toggling wrap to: " .. tostring(wrap_is_enabled))
+    vim.wo.wrap = not vim.wo.wrap
+    print("Toggling wrap to: " .. tostring(vim.wo.wrap))
 end, {})
 
 -- [[ Highlight on yank ]]
@@ -17,5 +14,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     group = highlight_group,
     pattern = "*",
 })
-
-require("oil").setup()

@@ -24,6 +24,7 @@ return {
                 json = { "prettier" },
                 yaml = { "prettier" },
                 html = { "prettier" },
+                sql = { "sqlfmt" },
                 c = { "clang_format" },
                 cpp = { "clang_format" },
             },
