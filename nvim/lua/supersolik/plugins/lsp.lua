@@ -152,6 +152,7 @@ return {
                 ruff = {},
                 terraformls = {},
                 dockerls = {},
+                gh_actions_ls = {},
                 -- NOTE: enable if needed
                 gopls = {},
                 -- templ = {},
@@ -174,7 +175,6 @@ return {
             }
 
             local ensure_installed = vim.list_extend(vim.tbl_keys(servers), {
-                "pinact",
                 -- Formatters
                 "clang-format",
                 "prettier",
