@@ -173,7 +173,14 @@ return {
                 },
             }
 
-            local ensure_installed = vim.list_extend(vim.tbl_keys(servers), { "stylua" })
+            local ensure_installed = vim.list_extend(vim.tbl_keys(servers), {
+                "pinact",
+                -- Formatters
+                "clang-format",
+                "prettier",
+                "sqlfmt",
+                "stylua",
+            })
             require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
             require("mason-lspconfig").setup({
