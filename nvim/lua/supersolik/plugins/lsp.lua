@@ -50,20 +50,16 @@ return {
                     map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
                     map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 
-                    map("<leader>gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-                    map("<leader>gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+                    map("<leader>gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+                    map("<leader>gr", vim.lsp.buf.references, "[G]oto [R]eferences")
 
                     map("<leader>gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-                    map("<leader>gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+                    map("<leader>gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
 
-                    map("<leader>gt", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+                    map("<leader>gt", vim.lsp.buf.type_definition, "Type [D]efinition")
 
-                    map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-                    map(
-                        "<leader>ws",
-                        require("telescope.builtin").lsp_dynamic_workspace_symbols,
-                        "[W]orkspace [S]ymbols"
-                    )
+                    map("<leader>ds", vim.lsp.buf.document_symbol, "[D]ocument [S]ymbols")
+                    map("<leader>ws", vim.lsp.buf.workspace_symbol, "[W]orkspace [S]ymbols")
 
                     -- See `:help K` for why this keymap
                     map("K", vim.lsp.buf.hover, "Hover Documentation")
