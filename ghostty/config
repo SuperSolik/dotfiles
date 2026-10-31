@@ -5,3 +5,7 @@ fullscreen = true
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
+
+# Send Ctrl+F to the shell so zsh can use it for fzf's cd widget.
+# Ghostty's search remains available on Cmd+F.
+keybind = ctrl+f=text:\x06
