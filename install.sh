@@ -36,11 +36,26 @@ ln -v -sfn "$DOTFILES_DIR/ghostty" "$HOME/.config/ghostty"
 # Create symlinks for individual files
 ln -v -sfn "$DOTFILES_DIR/.ignore" "$HOME/.ignore"
 
-# Install pure prompt if it is missing
-if [ ! -d "$HOME/.zsh/pure" ]; then
-  echo "Installing pure prompt to $HOME/.zsh/pure"
+# Install pure prompt at the latest release, or update an existing checkout.
+PURE_DIR="$HOME/.zsh/pure"
+PURE_REPO="https://github.com/sindresorhus/pure.git"
+PURE_TAG=$(git ls-remote --tags --refs --sort=-v:refname "$PURE_REPO" | awk -F/ 'NR == 1 { print $NF }')
+
+if [ -z "$PURE_TAG" ]; then
+  echo "Could not determine the latest pure release" >&2
+  exit 1
+fi
+
+if [ ! -d "$PURE_DIR" ]; then
+  echo "Installing pure $PURE_TAG to $PURE_DIR"
   mkdir -p "$HOME/.zsh"
-  git clone --depth 1 https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+  git clone --branch "$PURE_TAG" --depth 1 "$PURE_REPO" "$PURE_DIR"
+elif [ -d "$PURE_DIR/.git" ]; then
+  echo "Updating pure to $PURE_TAG in $PURE_DIR"
+  git -C "$PURE_DIR" fetch --tags --force origin
+  git -C "$PURE_DIR" checkout --force --detach "$PURE_TAG"
+else
+  echo "Warning: $PURE_DIR exists but is not a git checkout; leaving it unchanged" >&2
 fi
 
 # Remove the old standalone fzf key-bindings file. Only remove it when it is a
