@@ -18,7 +18,7 @@ return {
         {
             "<leader>sg",
             function()
-                require("fff").live_grep()
+                require("fff").live_grep({ grep = { modes = { "fuzzy", "plain", "regex" } } }) -- NOTE: reorder modes so that fuzzy is default
             end,
             desc = "[S]earch by [G]rep",
         },
